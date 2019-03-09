@@ -1,4 +1,3 @@
-from random import randrange
 import sys
 
 sys.setrecursionlimit(1e5)
@@ -6,13 +5,11 @@ sys.setrecursionlimit(1e5)
 def factor_n(n):
     R = Integers(n)
     while True:
-        a = R(randrange(3, n))
-        # curve = y^2 = x^3 + a
+        a = R.random_element()
+        # curve: y^2 = x^3 + a
         E = EllipticCurve([0, a])
-        x = R(randrange(3, n))
-        # Pn = E.division_polynomial(n, x)
+        x = R.random_element()
         z = E.division_polynomial(n, x)
-        # z = Pn(x)
         g = gcd(z, n)
         if g > 1:
             return g
