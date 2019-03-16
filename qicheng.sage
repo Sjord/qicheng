@@ -32,3 +32,7 @@ def factor(n):
             g = gcd(z, n)
             if g > 1:
                 return g
+
+
+if __name__ == "__main__":
+    print(factor(Integer(sys.argv[1])))
